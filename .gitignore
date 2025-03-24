@@ -37,3 +37,6 @@ bower_components/
 
 # Database
 database/app.db
+
+# Environment variables'
+.env
