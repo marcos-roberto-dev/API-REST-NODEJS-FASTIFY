@@ -34,3 +34,6 @@ coverage/
 
 # Dependency directories
 bower_components/
+
+# Database
+database/
