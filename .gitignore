@@ -36,4 +36,4 @@ coverage/
 bower_components/
 
 # Database
-database/
+database/app.db
