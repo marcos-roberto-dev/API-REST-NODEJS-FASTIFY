@@ -1,5 +1,6 @@
 import { FastifyInstance } from 'fastify'
 import { knex } from '../database'
+import { transactionSchema } from '../schemas/transactions.schema'
 import { z as zod } from 'zod'
 
 export async function transactionsRoutes(app: FastifyInstance) {
@@ -9,13 +10,12 @@ export async function transactionsRoutes(app: FastifyInstance) {
   })
 
   app.post('/', async (request, reply) => {
-    const createTransactionBodySchema = zod.object({
-      title: zod.string(),
-      amount: zod.number(),
-      type: zod.enum(['credit', 'debit']),
-    })
-
-    const { title, amount, type } = createTransactionBodySchema.parse(
+    const createTransactionSchema = transactionSchema
+      .extend({
+        type: zod.enum(['credit', 'debit']),
+      })
+      .omit({ id: true })
+    const { title, amount, type, session_id } = createTransactionSchema.parse(
       request.body,
     )
 
@@ -23,6 +23,7 @@ export async function transactionsRoutes(app: FastifyInstance) {
       id: crypto.randomUUID(),
       title,
       amount: type === 'credit' ? amount : amount * -1,
+      session_id,
     })
 
     return reply.status(201).send()
