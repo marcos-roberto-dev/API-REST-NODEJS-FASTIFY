@@ -1,0 +1,15 @@
+
+# Get Transactions
+GET {{$dotenv URL_API}}/transactions
+
+###
+
+# Post Transaction
+POST {{$dotenv URL_API}}/transactions
+Content-Type: application/json
+
+{
+    "amount": 1000,
+    "title": "Test Transaction",
+    "type": "credit"
+}
