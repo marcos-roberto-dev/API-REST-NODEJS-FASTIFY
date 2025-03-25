@@ -6,7 +6,7 @@ import { z as zod } from 'zod'
 export async function transactionsRoutes(app: FastifyInstance) {
   app.get('/', async () => {
     const transactions = await knex('transactions').select('*')
-    return transactions
+    return { transactions }
   })
 
   app.post('/', async (request, reply) => {
