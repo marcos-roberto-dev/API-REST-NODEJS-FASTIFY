@@ -1,6 +1,11 @@
+@transactionId=371fce74-9541-4533-86aa-d18f2373cb19
 
 # Get Transactions
 GET {{$dotenv URL_API}}/transactions
+
+###
+
+GET {{$dotenv URL_API}}/transactions/{{transactionId}}
 
 ###
 
