@@ -9,6 +9,8 @@ GET {{$dotenv URL_API}}/transactions/{{transactionId}}
 
 ###
 
+GET {{$dotenv URL_API}}/transactions/summary
+
 # Post Transaction
 POST {{$dotenv URL_API}}/transactions
 Content-Type: application/json
