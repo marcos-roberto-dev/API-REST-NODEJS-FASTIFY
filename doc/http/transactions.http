@@ -1,17 +1,29 @@
 @transactionId=371fce74-9541-4533-86aa-d18f2373cb19
 
 # Get Transactions
+# Retrieves a list of all transactions.
 GET {{$dotenv URL_API}}/transactions
 
 ###
 
+# Get Transaction by ID
+# Retrieves details of a specific transaction by its ID.
+# Path Parameter:
+# - transactionId (string): The unique identifier of the transaction.
 GET {{$dotenv URL_API}}/transactions/{{transactionId}}
 
 ###
 
+# Get Transactions Summary
+# Retrieves a summary of all transactions, such as total credits and debits.
 GET {{$dotenv URL_API}}/transactions/summary
 
 # Post Transaction
+# Creates a new transaction.
+# Request Body (JSON):
+# - amount (number): The amount of the transaction.
+# - title (string): A description or title for the transaction.
+# - type (string): The type of transaction, either "credit" or "debit".
 POST {{$dotenv URL_API}}/transactions
 Content-Type: application/json
 
