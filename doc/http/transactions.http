@@ -18,6 +18,8 @@ GET {{$dotenv URL_API}}/transactions/{{transactionId}}
 # Retrieves a summary of all transactions, such as total credits and debits.
 GET {{$dotenv URL_API}}/transactions/summary
 
+###
+
 # Post Transaction
 # Creates a new transaction.
 # Request Body (JSON):
