@@ -1,6 +1,12 @@
-import 'dotenv/config'
+import { config } from 'dotenv'
 
 import { z as zod } from 'zod'
+
+if (process.env.NODE_ENV === 'test') {
+  config({ path: '.env.test' })
+} else {
+  config()
+}
 
 const envSchema = zod.object({
   DATABASE_URL: zod.string(),

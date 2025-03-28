@@ -40,3 +40,4 @@ database/app.db
 
 # Environment variables'
 .env
+.env.test
