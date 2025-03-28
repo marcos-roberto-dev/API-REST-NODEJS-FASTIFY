@@ -36,7 +36,7 @@ coverage/
 bower_components/
 
 # Database
-database/app.db
+database/*.db
 
 # Environment variables'
 .env
